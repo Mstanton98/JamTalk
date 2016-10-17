@@ -1,0 +1,28 @@
+{
+    "name": "q2_project",
+    "version": "1.0.0",
+    "description": "A fun site using socket.io and the soundcloud api",
+    "main": "server.js",
+    "scripts": {
+        "knex": "knex",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js"
+    },
+    "author": "Derek Wierson <derek.wierson@gmail.com>",
+    "license": "ISC",
+    "dependencies": {
+        "bcrypt-as-promised": "^1.1.0",
+        "body-parser": "^1.15.2",
+        "boom": "^3.2.2",
+        "cookie-parser": "^1.4.3",
+        "express": "^4.14.0",
+        "express-validation": "^1.0.1",
+        "humps": "^1.1.0",
+        "joi": "^9.1.0",
+        "jsonwebtoken": "^7.1.9",
+        "knex": "^0.11.7",
+        "morgan": "^1.7.0",
+        "pg": "^6.0.0",
+        "socket.io": "^1.5.0"
+    }
+}
