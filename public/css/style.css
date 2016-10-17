@@ -4,6 +4,13 @@
 
 body {
   background-color: #EFBBFF;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 #chatBox {
@@ -17,6 +24,7 @@ body {
 
 #song {
   width: 80%;
+  height:30%;
   margin-left: 10%;
   margin-right: 10%;
 }
