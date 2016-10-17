@@ -3,14 +3,20 @@
 }
 
 body {
-  background-color: black;
+  background-color: #EFBBFF;
 }
 
 #chatBox {
-  background-color: black;
+
 }
 
 #sendButton {
-  background-color: blue;
-  padding-bottom: 5%;
+  background-color: #B70FD1;
+  margin-top: 3%;
+}
+
+#song {
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
