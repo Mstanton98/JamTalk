@@ -15,6 +15,9 @@ exports.up = function(knex) {
       .inTable('users')
       .onDelete('CASCADE')
       .index();
+    table.string('embed_link')
+      .notNullable()
+      .defaultTo('')
     table.timestamps(true, true);
   });
 };
