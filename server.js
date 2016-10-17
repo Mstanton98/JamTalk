@@ -17,11 +17,25 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+const altRock = require('./routes/alt_rock');
+const blues = require('./routes/blues');
+const edm = require('./routes/edm');
+const favorites = require('./routes/favorites');
+const folk = require('./routes/folk');
+const metal = require('./routes/metal');
+const rap = require('./routes/rap');
+const token = require('./routes/token');
+const users = require('./routes/users');
 
-
-
-
-
+app.use(altRock);
+app.use(blues);
+app.use(edm);
+app.use(favorites);
+app.use(folk);
+app.use(metal);
+app.use(rap);
+app.use(token);
+app.use(users);
 
 app.use((_req, res) => {
   res.sendStatus(404);
