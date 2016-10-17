@@ -13,3 +13,5 @@ const router = express.Router();
 router.get('/metal', (_req, res, next) => {
   
 })
+
+module.exports = router;
