@@ -3,10 +3,7 @@
 const boom = require('boom');
 const express = require('express');
 const knex = require('../knex');
-const {
-  camelizeKeys,
-  decamelizeKeys
-} = require('humps');
+const { camelizeKeys, decamelizeKeys } = require('humps');
 
 const router = express.Router();
 
