@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+}
+
+#chatBox {
+  background-color: black;
+}
+
+#sendButton {
+  background-color: blue;
+  padding-bottom: 5%;
+}
