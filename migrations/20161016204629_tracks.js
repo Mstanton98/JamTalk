@@ -5,7 +5,8 @@ exports.up = function(knex) {
     table.increments();
     table.string('title').notNullable().defaultTo('');
     table.string('artist').notNullable().defaultTo('');
-    table.string('url').notNullable().defaultTo('');
+    table.string('image_url').notNullable().defaultTo('');
+    table.integer('sc_id').notNullable().unique();
     table.string('image').defaultTo('http://www.clker.com/cliparts/q/L/P/Y/t/6/no-image-available-md.png')
     table.timestamps(true, true);
   });
