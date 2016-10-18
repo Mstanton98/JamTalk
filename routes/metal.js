@@ -15,15 +15,12 @@ const router = express.Router();
 //send the object to front end via fetch or getJSON query
 //build out logic to rerun process every 12 hours
 router.get('/metal', (_req, res, next) => {
-  request.get('https://api-v2.soundcloud.com/charts?kind=top&genre=soundcloud%3Agenres%3Ametal&client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea&limit=20&offset=0&linked_partitioning=1&app_version=1476719521', (err, res, body) => {
-    if (err) {
-      return boom.create(400, 'Bad Request');
-    }
-    console.log(JSON.parse(body.collection));
-  })
-  .catch((err) => {
-    next(err);
-  });
+  request('https://api-v2.soundcloud.com/charts?kind=top&genre=soundcloud%3Agenres%3Ametal&client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea&limit=50&offset=0&linked_partitioning=1&app_version=1476719521',(error, response, body) => {
+  if (error) throw new Error(error);
+
+  res.send(JSON.parse(body));
+});
+
 });
 
 module.exports = router;
