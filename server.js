@@ -10,6 +10,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const port = process.env.PORT || 8000;
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
 
 app.disable('x-powered-by');
 
@@ -27,13 +29,20 @@ const rap = require('./routes/rap');
 const token = require('./routes/token');
 const users = require('./routes/users');
 
-// app.use(altRock);
-// app.use(blues);
-// app.use(edm);
+
+io.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
+});
+
+app.use(altRock);
+app.use(blues);
+app.use(edm);
 // app.use(favorites);
-// app.use(folk);
+app.use(folk);
 app.use(metal);
-// app.use(rap);
+app.use(rap);
 // app.use(token);
 // app.use(users);
 

@@ -5,6 +5,7 @@ const express = require('express');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const request = require('request');
+
 let randomNum = Math.floor(Math.random() * 50);
 
 setInterval(() => {
