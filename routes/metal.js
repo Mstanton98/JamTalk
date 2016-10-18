@@ -5,7 +5,6 @@ const express = require('express');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 const request = require('request');
-const timer = require('../timer').timer;
 let randomNum = Math.floor(Math.random() * 50);
 
 setInterval(() => {
@@ -17,7 +16,7 @@ const router = express.Router();
 //send the object to front end via fetch or getJSON query
 //build out logic to rerun process every 12 hours
 router.get('/metal', (_req, res, next) => {
-  request('https://api-v2.soundcloud.com/charts?kind=top&genre=soundcloud%3Agenres%3Ametal&client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea&limit=50&offset=0&linked_partitioning=1&app_version=1476719521',(error, response, body) => {
+  request('https://api-v2.soundcloud.com/charts?kind=trending&genre=soundcloud%3Agenres%3Ametal&client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea&limit=50&offset=0&linked_partitioning=1&app_version=1476719521',(error, response, body) => {
     if (error) {
       return next(boom.create(400, 'Bad Request'))
     };
