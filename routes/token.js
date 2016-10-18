@@ -12,7 +12,7 @@ const validations = require('../validations/token');
 const router = express.Router();
 
 router.post('/token', ev(validations.post), (req, res, next) => {
-  const { email, password } = req.body;
+  const { email, password, username } = req.body;
   let user;
 
   knex('users')
@@ -20,7 +20,7 @@ router.post('/token', ev(validations.post), (req, res, next) => {
     .first()
     .then((row) => {
       if (!row) {
-        throw boom.create(400, 'Bad email or password');
+        return boom.create(400, 'Bad email or password');
       }
 
       user = camelizeKeys(row);
@@ -44,7 +44,7 @@ router.post('/token', ev(validations.post), (req, res, next) => {
       res.send(user);
     })
     .catch(bcrypt.MISMATCH_ERROR, () => {
-      throw boom.create(400, 'Bad email or password');
+      return boom.create(400, 'Bad email or password');
     })
     .catch((err) => {
       next(err);

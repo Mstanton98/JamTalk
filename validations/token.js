@@ -13,6 +13,13 @@ module.exports.post = {
       .label('Password')
       .required()
       .trim()
-      .min(8)
+      .min(8),
+    email: Joi.string()
+      .label('Email')
+      .required()
+      .email()
+      .trim()
+      .min(4)
+
   }
 };

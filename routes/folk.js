@@ -8,7 +8,19 @@ const {
   decamelizeKeys
 } = require('humps');
 const request = require('request');
+const jwt = require('jsonwebtoken');
 
+const authorize = function(req, res, next) {
+  jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
+    if (err) {
+      return next(boom.create(401, 'Unauthorized'));
+    }
+
+    req.token = decoded;
+    // You can now access the payload via req.token.userId
+    next();
+  });
+};
 let randomNum = Math.floor(Math.random() * 50);
 
 setInterval(() => {
@@ -21,7 +33,7 @@ const router = express.Router();
 
 //send the object to front end via fetch or getJSON query
 //build out logic to rerun process every 12 hours
-router.get('/folk', (_req, res, next) => {
+router.get('/folk', authorize, (_req, res, next) => {
   request('https://api-v2.soundcloud.com/charts?kind=trending&genre=soundcloud%3Agenres%3Afolksingersongwriter&client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea&limit=50&offset=0&linked_partitioning=1&app_version=1476719521',(error, response, body) => {
     if (error) {
       return next(boom.create(400, 'Bad Request'))

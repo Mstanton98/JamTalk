@@ -43,8 +43,8 @@ app.use(edm);
 app.use(folk);
 app.use(metal);
 app.use(rap);
-// app.use(token);
-// app.use(users);
+app.use(token);
+app.use(users);
 
 app.use((_req, res) => {
   res.sendStatus(404);
