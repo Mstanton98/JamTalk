@@ -14,6 +14,7 @@ let randomNum = Math.floor(Math.random() * 50);
 setInterval(() => {
   randomNum = Math.floor(Math.random() * 50);
 }, 10000);
+// 3600000 for 1 hour
 console.log(randomNum);
 
 const router = express.Router();
@@ -38,7 +39,7 @@ router.get('/metal', (_req, res, next) => {
       knex('tracks')
         .insert(decamelizeKeys(insertTrack), '*')
         .then((rows) => {
-          const track = camelizeKeys(row[0]);
+          const track = camelizeKeys(rows[0]);
 
           res.send(track);
         })

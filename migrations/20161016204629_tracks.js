@@ -6,7 +6,7 @@ exports.up = function(knex) {
     table.string('title').notNullable().defaultTo('');
     table.string('genre').notNullable().defaultTo('');
     table.string('embed_link', [320]).notNullable().defaultTo('');
-    table.integer('sc_id').notNullable().unique();
+    table.integer('sc_id').notNullable();
     table.timestamps(true, true);
   });
 };
