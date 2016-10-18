@@ -36,7 +36,9 @@ router.get('/metal', (_req, res, next) => {
       };
     console.log(track);
 
-    res.send(obj.collection[randomNum]);
+  console.log(randomNum);
+  res.send(obj.collection[randomNum]);
+  });
   })
 });
 
