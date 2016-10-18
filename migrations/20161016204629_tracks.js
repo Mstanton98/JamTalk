@@ -4,7 +4,6 @@ exports.up = function(knex) {
   return knex.schema.createTable('tracks', (table) => {
     table.increments();
     table.string('title').notNullable().defaultTo('');
-    table.string('artist').notNullable().defaultTo('');
     table.string('genre').notNullable().defaultTo('');
     table.string('embed_link').notNullable().defaultTo('');
     table.integer('sc_id').notNullable().unique();
