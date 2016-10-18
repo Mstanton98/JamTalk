@@ -39,7 +39,7 @@ io.on('connection', function(socket){
 app.use(altRock);
 app.use(blues);
 app.use(edm);
-// app.use(favorites);
+app.use(favorites);
 app.use(folk);
 app.use(metal);
 app.use(rap);

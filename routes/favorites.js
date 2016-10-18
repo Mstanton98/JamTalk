@@ -23,13 +23,14 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/favorites', authorize, (req, res, next) => {
+router.get('/favorites', (req, res, next) => {
   const { userId } = req.token;
+
 
   knex('favorites')
     .innerJoin('tracks', 'tracks.id', 'favorites.track_id')
     .where('favorites.user_id', userId)
-    .orderBy('track.title', 'ASC')
+    .orderBy('tracks.title', 'ASC')
     .then((rows) => {
       const favorites = camelizeKeys(rows);
 
@@ -43,10 +44,6 @@ router.get('/favorites', authorize, (req, res, next) => {
 router.get('/favorites/check', authorize, (req, res, next) => {
   const { userId } = req.token;
   const trackId = Number.parseInt(req.query.trackId);
-
-  if (!trackId || (isNaN(trackId))) {
-    return next(boom.create(400, 'Track ID must be an integer'));
-  }
 
   knex('favorites')
     .innerJoin('tracks', 'tracks.id', 'favorites.track_id')
