@@ -15,7 +15,7 @@ exports.up = function(knex) {
       .inTable('users')
       .onDelete('CASCADE')
       .index();
-    table.string('embed_link')
+    table.string('embed_link', [320])
       .notNullable()
       .defaultTo('')
     table.timestamps(true, true);

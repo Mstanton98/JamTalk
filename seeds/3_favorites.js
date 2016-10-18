@@ -14,7 +14,7 @@ exports.seed = function(knex) {
     })
     .then(() => {
       return knex.raw(
-        "SELECT setval('favorites', (SELECT MAX(id) FROM favorites));"
+        "SELECT setval('favorites_id_seq', (SELECT MAX(id) FROM favorites));"
       );
     });
 };
