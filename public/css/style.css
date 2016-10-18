@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Helvetica', sans-serif;
 }
 
 body {
@@ -11,6 +12,10 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+#navHead{
+  padding-bottom: 25%;
 }
 
 #chatBox {
