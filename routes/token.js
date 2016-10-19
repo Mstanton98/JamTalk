@@ -12,11 +12,11 @@ const validations = require('../validations/token');
 const router = express.Router();
 
 router.post('/token', ev(validations.post), (req, res, next) => {
-  const { email, password, username } = req.body;
+  const { password, username } = req.body;
   let user;
 
   knex('users')
-    .where('email', email)
+    .where('username', username)
     .first()
     .then((row) => {
       if (!row) {
