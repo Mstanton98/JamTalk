@@ -10,12 +10,16 @@ body {
   flex-direction: column;
 }
 
+p {
+  word-wrap: break-word;
+}
+
 #hamburger {
   color: black;
 }
 
 #appName {
-  margin-left: 33.3%;
+  margin-left: 33%;
   color: black;
   font-family: 'Lobster', cursive;
 }
@@ -23,7 +27,8 @@ body {
 #appNameLogin {
   margin-left: 33.3%;
   margin-right: 66.7%;
-  color: black;
+
+#login {
   font-family: 'Lobster', cursive;
 }
 
@@ -37,6 +42,11 @@ body {
 
 #foot {
   background-color: #5F4B66;
+}
+
+#footLogin {
+  background-color: #5F4B66;
+  margin-top: 0%;
 }
 
 #nav {
@@ -58,12 +68,28 @@ body {
 }
 
 #chatBox {
+  margin-top: 2.5%;
   margin-bottom: none;
   padding-left: none;
   padding-right: none;
+  position: relative;
 }
 
 #chatView {
+  background-color: #C9C9EE;
+  box-shadow: 4px 4px 4px;
+  border: 4px black;
+  border-style: inset;
+  border-radius: 5px;
+  margin-left: 15%;
+  margin-right: 15%;
+  margin-top: 0%;
+  height: 1%;
+  overflow: hidden;
+  position:relative;
+}
+
+#msgBox {
   background-color: #BAABBD;
   box-shadow: 4px 4px 4px;
   border: 4px black;
@@ -71,20 +97,27 @@ body {
   border-radius: 5px;
   margin-left: 15%;
   margin-right: 15%;
-  overflow: hidden;
+  margin-top: 2%;
+  height: 150px;
+  overflow: scroll;
+  position:relative;
 }
 
 #chatRow {
-  margin-bottom: none !important;
+  margin-bottom:0%;
+  overflow: hidden;
 }
 
 #sendButton {
   background-color: #2C1320;
-  margin-top: 3%;
+  padding-top: 2%;
+  padding-bottom: 5%;
 }
 
 #chatPH {
-  margin-bottom: none;
+  margin-bottom: 0%;
+  border-color: black;
+  margin-top: 3%;
 }
 
 #song {
@@ -95,10 +128,27 @@ body {
   margin-top: 5%;
 }
 
+#formdiv {
+  width: 30%;
+  height: 160px;
+  border: 4px solid;
+  border-color: #C77F8C;
+  background-color: #A7ADC6;
+  border-radius: 5%;
+}
+
+.input-field label {
+  color: black;
+}
+
+.input- {
+  color: black;
+}
+
 header {
   background: url('http://az616578.vo.msecnd.net/files/2015/12/20/6358623850982099701625905936_concert%20crowd.jpg');
   background-size: cover;
   flex-direction:column;
-  height: 450px;
+  height: 550px;
   justify-content: center;
 }
