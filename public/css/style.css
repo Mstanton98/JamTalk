@@ -95,7 +95,10 @@ body {
   margin-top: 5%;
 }
 
-#backgroundImg {
-  padding-bottom: 100%;
-  width: 100%;
+header {
+  background: url('http://az616578.vo.msecnd.net/files/2015/12/20/6358623850982099701625905936_concert%20crowd.jpg');
+  background-size: cover;
+  flex-direction:column;
+  height: 450px;
+  justify-content: center;
 }
