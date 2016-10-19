@@ -11,6 +11,7 @@
   "author": "Derek Wierson <derek.wierson@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "animate.css": "^3.5.2",
     "bcrypt-as-promised": "^1.1.0",
     "body-parser": "^1.15.2",
     "boom": "^3.2.2",
