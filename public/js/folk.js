@@ -1,12 +1,13 @@
-'use strict';
+'use strict'
 
-(function(){
+$(function(){
 
   const $song = $('#songDiv');
   const $subminButton = $('');
   const $sidebarUsername = $('#username');
 
-  $.getJSON('/alt_rock')
+
+  $.getJSON('/folk')
     .done((track) => {
       $song.html(track.embedLink);
     })
@@ -14,5 +15,10 @@
       Materialize.toast('Unable to retrieve song.  Default song playing.', 3000);
     });
 
+
+
   $(".button-collapse").sideNav();
+
+
+
 });
