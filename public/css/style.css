@@ -4,32 +4,77 @@
 }
 
 body {
-  background-color: #EFBBFF;
+  background-color: #A7ADC6;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-main {
-  flex: 1 0 auto;
+#hamburger {
+  color: black;
 }
 
-#navHead{
-  padding-bottom: 25%;
+#appName {
+  margin-left: 33.3%;
+  color: black;
+  font-family: 'Lobster', cursive;
+}
+
+#footName {
+  font-family: 'Lobster', cursive;
+}
+
+#foot {
+  background-color: #5F4B66;
+}
+
+#nav {
+  background-color: #5F4B66;
+  width: 100%;
+  padding-bottom: none;
+  padding-top: none;
+  margin-top: none;
+  margin-bottom: none;
+}
+
+#navHead {
+  padding-bottom: 35%;
 }
 
 #chatBox {
+  margin-bottom: none;
+  padding-left: none;
+  padding-right: none;
+}
 
+#chatView {
+  background-color: #C9C9EE;
+  box-shadow: 4px 4px 4px;
+  border: 4px black;
+  border-style: inset;
+  border-radius: 5px;
+  margin-left: 15%;
+  margin-right: 15%;
+  overflow: hidden;
+}
+
+#chatRow {
+  margin-bottom: none !important;
 }
 
 #sendButton {
-  background-color: #B70FD1;
+  background-color: #2C1320;
   margin-top: 3%;
 }
 
+#chatPH {
+  margin-bottom: none;
+}
+
 #song {
-  width: 80%;
-  height:30%;
-  margin-left: 10%;
-  margin-right: 10%;
+  width: 60%;
+  height: 400px;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5%;
 }
