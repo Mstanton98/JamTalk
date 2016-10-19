@@ -3,6 +3,9 @@
 $(function(){
 
   const $song = $('#songDiv');
+  const $subminButton = $('');
+  const $sidebarUsername = $('#username');
+
 
   $.getJSON('/metal')
     .done((track) => {
