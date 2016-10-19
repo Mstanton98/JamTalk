@@ -19,6 +19,10 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+const path = require('path');
+
+app.use(express.static(path.join('public')));
+
 const altRock = require('./routes/alt_rock');
 const blues = require('./routes/blues');
 const edm = require('./routes/edm');
