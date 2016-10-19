@@ -28,23 +28,30 @@
        <h1 class="center-align white-text" id="login">
          Login
        </h1>
-       <div id="formdiv">
-         <form>
-           <div>
-             <div class="input-field">
-               <i class="material-icons prefix">account_circle</i>
-               <input id="icon_prefix" type="text" class="validate">
-               <label for="icon_prefix">Username</label>
-             </div>
-             <div class="input-field col s6">
-               <i class="material-icons">security</i>
-               <input id="icon_password" type="text" class="validate">
-               <label for="icon_password">Password</label>
-             </div>
-           </div>
-         </form>
+       <div class="container">
+         <div class="row" id="formBox">
+           <div id="formdiv" class="col l4 m4 s8">
+             <form>
+               <div>
+                 <div class="input-field">
+                   <i class="material-icons prefix">account_circle</i>
+                   <input id="icon_prefix" type="text" class="validate">
+                   <label for="icon_prefix">Username</label>
+                 </div>
+                 <div class="input-field col s6">
+                   <i class="material-icons prefix">security</i>
+                   <input id="icon_password" type="text" class="validate">
+                   <label for="icon_password">Password</label>
+                   <button class="btn waves-effect waves-light" type="submit" name="action">Login
+                     <i class="material-icons right">send</i>
+                   </button>
+                 </div>
+               </div>
+             </form>
+          </div>
+        </div>
       </div>
-       <a class="waves-effect waves-light btn-large pink accent-2">
+       <a class="waves-effect waves-light btn-large accent-2" id="needAcc">
          Need an account?
        </a>
      </header>
