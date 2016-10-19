@@ -33,50 +33,12 @@ const rap = require('./routes/rap');
 const token = require('./routes/token');
 const users = require('./routes/users');
 
-const metalChat = io.of('/metal-chat');
-const altRockChat = io.of('/rock-chat');
-const bluesChat = io.of('/blues-chat');
-const folkChat = io.of('/folk-chat');
-const rapChat = io.of('/rap-chat');
-const edmChat = io.of('/edm-chat');
 
-altRockChat.on('connection', function(socket){
+io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);
   });
 });
-
-metalChat.on('connection', function(socket){
-  metalChat.on('chat message', function(msg){
-    metalChat.emit('chat message', msg);
-  });
-});
-
-bluesChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
-
-folkChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
-
-rapChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
-
-edmChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
-
-
 
 app.use(altRock);
 app.use(blues);
