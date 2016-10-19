@@ -2,11 +2,11 @@
 
 $(function(){
 
-  const $song = $('#song');
+  const $song = $('#songDiv');
 
   $.getJSON('/metal')
     .done((track) => {
-      $song.attr('src', track.embedLink);
+      $song.html(track.embedLink);
     })
     .fail(() => {
       Materialize.toast('Unable to retrieve song', 3000);
