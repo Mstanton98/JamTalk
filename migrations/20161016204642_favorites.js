@@ -17,7 +17,7 @@ exports.up = function(knex) {
       .index();
     table.string('embed_link', [320])
       .notNullable()
-      .defaultTo('')
+      .defaultTo('');
     table.timestamps(true, true);
   });
 };

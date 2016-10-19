@@ -1,8 +1,13 @@
 'use strict'
 
-$(function(){
 
-  const $song = $('#song');
+$(function() {
+
+  const $song = $('#songDiv');
+  const $subminButton = $('');
+  const $sidebarUsername = $('#username');
+  const socket = io();
+>>>>>>> .io
 
   $.getJSON('/metal')
     .done((track) => {
@@ -15,6 +20,14 @@ $(function(){
 
 
 
+  $('#c').submit(function() {
+    socket.emit('chat message', $('#m').val());
+    $('#m').val('');
+    return false;
+  });
+  socket.on('chat message', function(msg) {
+    $('#messages').append($('<li>').text(msg));
+  });
 
   $(".button-collapse").sideNav();
 
@@ -27,4 +40,6 @@ $(function(){
 
 
 
+=======
+>>>>>>> socket.io
 });
