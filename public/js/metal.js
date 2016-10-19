@@ -21,7 +21,6 @@ $(function() {
 
 
 
-
   // $('#c').submit(function() {
   //   socket.emit('chat message', $('#m').val());
   //   $('#m').val('');
@@ -33,15 +32,4 @@ $(function() {
 
   $(".button-collapse").sideNav();
 
-
-
-
-
-
-
-
-
-
-=======
->>>>>>> socket.io
 });
