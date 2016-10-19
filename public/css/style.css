@@ -143,14 +143,16 @@ p {
   border-color: #C77F8C;
   background-color: #A7ADC6;
   border-radius: 5%;
+  margin-left: 35%;
 }
 
 .input-field label {
      color: black;
 }
 
-.input- {
+#needAcc {
   color: black;
+  background-color: #6381D1;
 }
 
 header {
