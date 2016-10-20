@@ -1,25 +1,26 @@
 'use strict'
 
-$(function() {
+$(() => {
 
   const socket = io('/rock');
   const $song = $('#songDiv');
-  const $subminButton = $('');
   const $sidebarUsername = $('#username');
   const $logout = $('#signOut');
 
   $sidebarUsername.html(`Hello ${localStorage.getItem('username')}!`);
 
-
-    $('#chatForm').submit(function(){
-      socket.emit('chat message', $('#chatPH').val());
-      $('#chatPH').val('');
-      return false;
-    });
-    socket.on('chat message', function(msg){
-      $('#msgBox').append($('<li>').text(`${localStorage.getItem('username')}:` + '  ' + msg));
-      console.log(msg);
-    });
+  $('#chatForm').submit(() => {
+    socket.emit('chat message', $('#chatPH').val());
+    $('#chatPH').val('');
+    return false;
+  });
+  socket.on('chat message', (msg) => {
+    $('#msgBox').append($('<li>').text(`${localStorage.getItem('username')}:` + '  ' + msg));
+    let scroll = $('#msgBox');
+    let height = scroll[0].scrollHeight;
+    scroll.scrollTop(height);
+    console.log(msg);
+  });
 
   $.getJSON('/alt_rock')
     .done((track) => {
@@ -29,26 +30,26 @@ $(function() {
       window.location.href = '/index.html';
     });
 
-    $logout.click((event) => {
-        event.preventDefault();
+  $logout.click((event) => {
+    event.preventDefault();
 
-        const options = {
-          dataType: 'json',
-          type: 'DELETE',
-          url: '/token'
-        };
+    const options = {
+      dataType: 'json',
+      type: 'DELETE',
+      url: '/token'
+    };
 
-        $.ajax(options)
-          .done(() => {
-            localStorage.setItem('username', null)
-            window.location.href = '/index.html';
-          })
-          .fail(() => {
-            Materialize.toast('Unable to log out. Please try again.', 3000);
-          });
+    $.ajax(options)
+      .done(() => {
+        localStorage.setItem('username', null)
+        window.location.href = '/index.html';
+      })
+      .fail(() => {
+        Materialize.toast('Unable to log out. Please try again.', 3000);
       });
+  });
 
-    $(sendButton).on('click')
+  $(sendButton).on('click')
 
   $(".button-collapse").sideNav();
 

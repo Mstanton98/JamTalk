@@ -4,7 +4,6 @@ $(function() {
 
   const socket = io('/rap');
   const $song = $('#songDiv');
-  const $subminButton = $('');
   const $sidebarUsername = $('#username');
   const $logout = $('#signOut');
 
@@ -18,6 +17,9 @@ $(function() {
     });
     socket.on('chat message', function(msg){
       $('#msgBox').append($('<li>').text(`${localStorage.getItem('username')}:` + '  ' + msg));
+      let scroll = $('#msgBox');
+      let height = scroll[0].scrollHeight;
+      scroll.scrollTop(height);
       console.log(msg);
     });
 
