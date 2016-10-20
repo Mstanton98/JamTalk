@@ -49,6 +49,12 @@ p {
   font-size: 48px;
 }
 
+#favButton {
+  float: right;
+  background-color: #5F4B66;
+  color: #A7ADC6;
+}
+
 #foot {
   background-color: #5F4B66;
   position: relative;

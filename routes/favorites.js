@@ -40,43 +40,19 @@ router.get('/favorites', (req, res, next) => {
     });
 });
 
-router.get('/favorites/check', authorize, (req, res, next) => {
-  const { userId } = req.token;
-  const trackId = Number.parseInt(req.query.trackId);
-
-  knex('favorites')
-    .innerJoin('tracks', 'tracks.id', 'favorites.track_id')
-    .where('favorites.track_id', trackId)
-    .first()
-    .then((row) => {
-
-    if (!row) {
-      return res.send(false)
-    }
-
-      res.send(true);
-    })
-    .catch((err) => {
-      next(err);
-    });
-});
-
 router.post('/favorites', authorize, ev(validations.post), (req, res, next) => {
   const { userId } = req.token;
   const trackId  = req.body.trackId;
+  const embedLink = req.body.embedLink;
 
-
-  const insertFavorite = {
-    trackId,
-    userId
-  };
+  const insertFavorite = { trackId, userId, embedLink };
 
   knex('tracks')
   .where('id', trackId)
   .first()
   .then((track) => {
     if (!track) {
-        return next(boom.create(404, 'track not found'));
+      return next(boom.create(404, 'track not found'));
     }
 
     return knex('favorites')
@@ -98,15 +74,6 @@ router.delete('/favorites', authorize, (req, res, next) => {
   let favorite ={};
 
   const trackId  = req.body.trackId;
-
-  if (!trackId) {
-    return next(boom.create(400, 'track Id must not be blank'));
-  }
-
-  if ((isNaN(trackId))) {
-    return next(boom.create(400, 'track ID must be an integer'));
-  }
-
 
   knex('favorites')
     .where('track_id', trackId)
