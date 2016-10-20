@@ -22,6 +22,15 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join('public')));
 
+// CSRF protection
+app.use((req, res, next) => {
+  if (/json/.test(req.get('Accept'))) {
+    return next();
+  }
+
+  res.sendStatus(406);
+});
+
 const altRock = require('./routes/alt_rock');
 const blues = require('./routes/blues');
 const edm = require('./routes/edm');
@@ -45,35 +54,35 @@ metalChat.on('connection', function(socket){
   });
 });
 
-// folkChat.on('connection', function(socket){
-//   socket.on('chat message', function(msg){
-//     folkChat.emit('chat message', msg);
-//   });
-// });
-//
-// rockChat.on('connection', function(socket){
-//   socket.on('chat message', function(msg){
-//     rockChat.emit('chat message', msg);
-//   });
-// });
-//
-// edmChat.on('connection', function(socket){
-//   socket.on('chat message', function(msg){
-//     edmChat.emit('chat message', msg);
-//   });
-// });
-//
-// rapChat.on('connection', function(socket){
-//   socket.on('chat message', function(msg){
-//     rapChat.emit('chat message', msg);
-//   });
-// });
-//
-// bluesChat.on('connection', function(socket){
-//   socket.on('chat message', function(msg){
-//     bluesChat.emit('chat message', msg);
-//   });
-// });
+folkChat.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    folkChat.emit('chat message', msg);
+  });
+});
+
+rockChat.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    rockChat.emit('chat message', msg);
+  });
+});
+
+edmChat.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    edmChat.emit('chat message', msg);
+  });
+});
+
+rapChat.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    rapChat.emit('chat message', msg);
+  });
+});
+
+bluesChat.on('connection', function(socket){
+  socket.on('chat message', function(msg){
+    bluesChat.emit('chat message', msg);
+  });
+});
 
 
 
@@ -86,6 +95,8 @@ app.use(metal);
 app.use(rap);
 app.use(token);
 app.use(users);
+
+
 
 app.use((_req, res) => {
   res.sendStatus(404);

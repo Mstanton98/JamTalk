@@ -35,7 +35,7 @@ $(document).ready(function(){
 
     $.ajax(options)
       .done(() => {
-        window.location.href = '/favorites.html';
+        window.location.href = '/metal.html';
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
@@ -75,7 +75,7 @@ $(document).ready(function(){
 
   $.ajax(optionsSignUp)
     .done(() => {
-      window.location.href = '/favorites.html';
+      window.location.href = '/metal.html';
     })
     .fail(($xhr) => {
       Materialize.toast($xhr.responseText, 3000);
