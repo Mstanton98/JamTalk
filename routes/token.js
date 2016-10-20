@@ -42,7 +42,7 @@ router.post('/token', ev(validations.post), (req, res, next) => {
       res.send(user);
     })
     .catch(bcrypt.MISMATCH_ERROR, () => {
-      return boom.create(400, 'Bad email or password');
+      return boom.create(400, 'Bad username or password');
     })
     .catch((err) => {
       next(err);
