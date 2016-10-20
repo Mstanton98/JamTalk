@@ -30,8 +30,6 @@ console.log(randomNum);
 
 const router = express.Router();
 
-//send the object to front end via fetch or getJSON query
-//build out logic to rerun process every 12 hours
 router.get('/metal', authorize, (_req, res, next) => {
   request('https://api-v2.soundcloud.com/charts?kind=trending&genre=soundcloud%3Agenres%3Ametal&client_id=02gUJC0hH2ct1EGOcYXQIzRFU91c72Ea&limit=50&offset=0&linked_partitioning=1&app_version=1476719521',(error, response, body) => {
     if (error) {
