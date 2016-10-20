@@ -19,6 +19,7 @@ p {
 }
 
 #appName {
+  margin-top: 1%;
   margin-left: 33%;
   color: black;
   font-family: 'Lobster', cursive;
@@ -218,6 +219,10 @@ p {
 #signUpButton {
   background-color: #5F4B66;
   color: #A7ADC6;
+}
+
+#navRow {
+  margin-bottom: 0%;
 }
 
 header {
