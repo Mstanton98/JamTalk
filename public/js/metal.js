@@ -1,17 +1,27 @@
 'use strict'
 
-
 $(function() {
 
+  const socket = io('/metal');
   const $song = $('#songDiv');
   const $subminButton = $('');
   const $sidebarUsername = $('#username');
 
-  // const socket = io();
+
+    $('#chatForm').submit(function(){
+      socket.emit('chat message', $('#chatPH').val());
+      $('#chatPH').val('');
+      return false;
+    });
+    socket.on('chat message', function(msg){
+      $('#msgBox').append($('<li>').text(msg));
+      console.log(msg);
+    });
+
 
   $.getJSON('/metal')
     .done((track) => {
-      $song.attr('src', track.embedLink);
+      $song.html(track.embedLink);
     })
     .fail(() => {
       Materialize.toast('Unable to retrieve song', 3000);
@@ -19,16 +29,18 @@ $(function() {
 
 
 
+    $(sendButton).on('click')
 
 
-
-  // $('#c').submit(function() {
-  //   socket.emit('chat message', $('#m').val());
-  //   $('#m').val('');
+  // $('#c').submit((event) => {
+  //   event.preventDefault();
+  //
+  //   socket.emit('chat message', $('#chatPH').val());
+  //   $('#chatPH').val('');
   //   return false;
   // });
   // socket.on('chat message', function(msg) {
-  //   $('#messages').append($('<li>').text(msg));
+  //   $('#msgBox').append($(('<li>')).text(msg));
   // });
 
   $(".button-collapse").sideNav();
@@ -42,6 +54,6 @@ $(function() {
 
 
 
-=======
->>>>>>> socket.io
+
+
 });

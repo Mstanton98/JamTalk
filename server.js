@@ -10,17 +10,16 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const port = process.env.PORT || 8000;
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+const path = require('path');
+
 
 app.disable('x-powered-by');
 
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
-
-const path = require('path');
-
 app.use(express.static(path.join('public')));
 
 const altRock = require('./routes/alt_rock');
@@ -33,12 +32,50 @@ const rap = require('./routes/rap');
 const token = require('./routes/token');
 const users = require('./routes/users');
 
+const metalChat = io.of('/metal');
+const folkChat = io.of('/folk');
+const rockChat = io.of('/rock');
+const edmChat = io.of('/edm');
+const rapChat = io.of('/rap');
+const bluesChat = io.of('/blues');
 
-io.on('connection', function(socket){
+metalChat.on('connection', function(socket){
   socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
+    metalChat.emit('chat message', msg);
   });
 });
+
+// folkChat.on('connection', function(socket){
+//   socket.on('chat message', function(msg){
+//     folkChat.emit('chat message', msg);
+//   });
+// });
+//
+// rockChat.on('connection', function(socket){
+//   socket.on('chat message', function(msg){
+//     rockChat.emit('chat message', msg);
+//   });
+// });
+//
+// edmChat.on('connection', function(socket){
+//   socket.on('chat message', function(msg){
+//     edmChat.emit('chat message', msg);
+//   });
+// });
+//
+// rapChat.on('connection', function(socket){
+//   socket.on('chat message', function(msg){
+//     rapChat.emit('chat message', msg);
+//   });
+// });
+//
+// bluesChat.on('connection', function(socket){
+//   socket.on('chat message', function(msg){
+//     bluesChat.emit('chat message', msg);
+//   });
+// });
+
+
 
 app.use(altRock);
 app.use(blues);
@@ -75,6 +112,6 @@ app.use((err, _req, res, _next) => {
   res.sendStatus(500);
 })
 
-app.listen(port, () => {
+server.listen(port, () => {
   console.log('Listening on port', port);
 });

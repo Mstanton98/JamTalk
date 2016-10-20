@@ -31,9 +31,7 @@ router.post('/token', ev(validations.post), (req, res, next) => {
       delete user.hashedPassword;
 
       const expiry = new Date(Date.now() + 1000 * 60 * 60 * 24 * 14);
-      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, {
-        expiresIn: '14 days'
-      });
+      const token = jwt.sign({ userId: user.id }, process.env.JWT_SECRET, { expiresIn: '14 days'}, {username : username});
 
       res.cookie('token', token, {
         httpOnly: true,
