@@ -8,13 +8,15 @@ $(function() {
   const $sidebarUsername = $('#username');
   const $logout = $('#signOut');
 
+  $sidebarUsername.html(`Hello ${localStorage.getItem('username')}!`);
+
     $('#chatForm').submit(function(){
       socket.emit('chat message', $('#chatPH').val());
       $('#chatPH').val('');
       return false;
     });
     socket.on('chat message', function(msg){
-      $('#msgBox').append($('<li>').text(msg));
+      $('#msgBox').append($('<li>').text(`${localStorage.getItem('username')}:` + '  ' + msg));
       console.log(msg);
     });
 
@@ -39,6 +41,7 @@ $(function() {
 
         $.ajax(options)
           .done(() => {
+            localStorage.setItem('username', null)
             window.location.href = '/index.html';
           })
           .fail(() => {

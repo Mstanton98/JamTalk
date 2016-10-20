@@ -6,16 +6,22 @@ $(function() {
   const $song = $('#songDiv');
   const $subminButton = $('');
   const $sidebarUsername = $('#username');
+  const $logout = $('#signOut');
 
-    $('#chatForm').submit(function(){
-      socket.emit('chat message', $('#chatPH').val());
-      $('#chatPH').val('');
-      return false;
-    });
-    socket.on('chat message', function(msg){
-      $('#msgBox').append($('<li>').text(msg));
-      console.log(msg);
-    });
+  $sidebarUsername.html(`Hello ${localStorage.getItem('username')}!`);
+
+
+  $sidebarUsername.html(`Hello ${localStorage.getItem('username')}!`);
+
+  $('#chatForm').submit(function() {
+    socket.emit('chat message', $('#chatPH').val());
+    $('#chatPH').val('');
+    return false;
+  });
+  socket.on('chat message', function(msg) {
+    $('#msgBox').append($('<li>').text(`${localStorage.getItem('username')}:` + '  ' + msg));
+    console.log(msg);
+  });
 
   $.getJSON('/edm')
     .done((track) => {
@@ -25,7 +31,26 @@ $(function() {
       window.location.href = '/index.html';
     });
 
-    $(sendButton).on('click')
+    $logout.click((event) => {
+        event.preventDefault();
+
+        const options = {
+          dataType: 'json',
+          type: 'DELETE',
+          url: '/token'
+        };
+
+        $.ajax(options)
+          .done(() => {
+            localStorage.setItem('username', null)
+            window.location.href = '/index.html';
+          })
+          .fail(() => {
+            Materialize.toast('Unable to log out. Please try again.', 3000);
+          });
+      });
+
+  $(sendButton).on('click')
 
   $(".button-collapse").sideNav();
 

@@ -35,6 +35,7 @@ $(document).ready(function(){
 
     $.ajax(options)
       .done(() => {
+        localStorage.setItem('username', username)
         window.location.href = '/metal.html';
       })
       .fail(($xhr) => {
