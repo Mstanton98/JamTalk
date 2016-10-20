@@ -45,29 +45,29 @@ $(document).ready(function(){
   $('#signUpForm').submit((event) => {
   event.preventDefault();
 
-  const emailSignUp = $('#emailSignUp').val().trim();
-  const usernameSignUp = $('#usernameSignUp').val().trim();
-  const passwordSignUp = $('#passwordSignUp').val().trim();
+  const email = $('#emailSignUp').val().trim();
+  const username = $('#usernameSignUp').val().trim();
+  const password = $('#passwordSignUp').val().trim();
 
-  if (!emailSignUp) {
+  if (!email) {
     return Materialize.toast('Email must not be blank', 3000);
   }
 
-  if (emailSignUp.indexOf('@') < 0) {
+  if (email.indexOf('@') < 0) {
     return Materialize.toast('Email must be valid', 3000);
   }
 
-  if (!usernameSignUp) {
+  if (!username) {
     return Materialize.toast('Username must not be blank', 3000);
   }
 
-  if (!passwordSignUp || password.length < 8) {
+  if (!password || password.length < 8) {
     return Materialize.toast('Password must be at least 8 characters long', 3000);
   }
 
   const optionsSignUp = {
     contentType: 'application/json',
-    data: JSON.stringify({ emailSignUp, usernameSignUp, passwordSignUp }),
+    data: JSON.stringify({ email, username, password }),
     dataType: 'json',
     type: 'POST',
     url: '/users'
