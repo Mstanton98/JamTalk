@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   <link type="text/css" rel="stylesheet" href="css/style.css">
-  <title>Rap track of the day</title>
+  <title>Your favorite tracks</title>
 </head>
 <body>
   <div id="nav">
@@ -43,26 +43,20 @@
     </div>
   </div>
 </div>
-  <div id="songDiv">
-    <iframe scrolling="no" frameborder="no" id="song" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/203876387&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true">
-      </iframe>
-  </div>
-  <div class="container">
-    <div id="msgBox">
-    </div>
-    <div id="chatView" class="input-field">
-      <div class="row" id="chatRow">
-        <form id='chatForm'>
-          <div class="input-field col l10 m8 s8" id="chatBox">
-            <input placeholder="Chat here!" type="text" id="chatPH">
-          </div>
-          <button class="btn waves-effect waves-light col l2 m4 s4" id="sendButton" type="submit" name="action">Send
-            </button>
-        </form>
-      </div>
+<div class="container">
+<div class="row">
+<div class="col l6 m6 s6 offset-s3 offset-m3 offset-l3" id="favoritesTitle">
+ <h1 class="center-align black-text">
+   Favorites
+ </h1>
+</div>
+</div>
+</div>
+  <div class="container" id="favoritesContainer">
+    <div id="favoritesBox">
     </div>
   </div>
-  <footer class="page-footer" id="foot">
+  <footer class="page-footer" id="favFoot">
     <div class="container">
       <div class="row">
         <div class="col l6 s12">
@@ -72,14 +66,16 @@
       </div>
     </div>
     <div class="footer-copyright">
-      <div class="container" id="copyright">
+      <div class="container">
         © 2016 Derek Wierson, Michael Stanton
       </div>
     </div>
   </footer>
+
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  <script src="js/rap.js" type="text/javascript"></script>
+  <script src="js/favorites.js" type="text/javascript"></script>
 </body>
+
 </html>

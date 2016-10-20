@@ -20,7 +20,8 @@ p {
 
 #appName {
   margin-top: 1%;
-  margin-left: 33%;
+  /*margin-left: 33%;*/
+  padding: 0%;
   color: black;
   font-family: 'Lobster', cursive;
 }
@@ -28,7 +29,7 @@ p {
 #appNameLogin {
   color: black;
   font-family: 'Lobster', cursive;
-  font-size: 48px;
+  font-size: 36px;
 }
 
 #login {
@@ -43,27 +44,46 @@ p {
   font-family: 'Lobster', cursive;
 }
 
+#favoritesTitle {
+  font-family: 'Lobster', cursive;
+  font-size: 48px;
+}
+
 #foot {
   background-color: #5F4B66;
+  position: relative;
+  margin-top: auto;
+  padding-bottom: 2%;
+}
+
+#favFoot {
+  background-color: #5F4B66;
+  padding-bottom: 2%;
+  margin-top: auto;
+  position: relative;
 }
 
 #footLogin {
   background-color: #5F4B66;
-  margin-top: 0%;
+  margin-top: auto;
+  position: relative;
 }
 
 #nav {
   background-color: #5F4B66;
   width: 100%;
-  padding-bottom: none;
-  padding-top: none;
-  margin-top: none;
-  margin-bottom: none;
+  padding-bottom: 0%;
+  padding-top: 0%;
+  margin: 0%;
+}
+
+#navContainer {
+  margin: 0%;
 }
 
 #navLogin {
   background-color: #5F4B66;
-  padding-bottom: 7%;
+  padding-bottom: 5%;
 }
 
 #navHead {
@@ -219,9 +239,14 @@ p {
 #signUpButton {
   background-color: #5F4B66;
   color: #A7ADC6;
+  margin-bottom: 2px;
 }
 
 #navRow {
+  margin-bottom: 0%;
+}
+
+#signUpCont {
   margin-bottom: 0%;
 }
 
@@ -229,6 +254,6 @@ header {
   background: url('http://az616578.vo.msecnd.net/files/2015/12/20/6358623850982099701625905936_concert%20crowd.jpg');
   background-size: cover;
   flex-direction:column;
-  height: 550px;
+  height: 750px;
   justify-content: center;
 }
