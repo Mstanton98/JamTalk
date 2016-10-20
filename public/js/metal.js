@@ -22,7 +22,7 @@ $(function() {
       $song.html(track.embedLink);
     })
     .fail(() => {
-      Materialize.toast('nable to retrieve song.  Default song playing.', 3000);
+      window.location.href = '/index.html';
     });
 
     $(sendButton).on('click')
