@@ -25,10 +25,9 @@ p {
 }
 
 #appNameLogin {
-  margin-left: 33.3%;
-  margin-right: 66.7%;
   color: black;
   font-family: 'Lobster', cursive;
+  font-size: 48px;
 }
 
 #login {
@@ -37,13 +36,6 @@ p {
 
 #slide-out {
   background-color: #A7ADC6;
-}
-
-#appNameLogin {
-  margin-left: 33.3%;
-  margin-right: 66.7%;
-  color: black;
-  font-family: 'Lobster', cursive;
 }
 
 #footName {
@@ -137,22 +129,95 @@ p {
 }
 
 #formdiv {
-  width: 30%;
-  height: 160px;
-  border: 4px solid;
-  border-color: #C77F8C;
+  height: 175px;
+  box-shadow: 2px 2px 2px;
+  border: 8px solid;
+  border-color: #5F4B66;
   background-color: #A7ADC6;
-  border-radius: 5%;
-  margin-left: 35%;
+  border-radius: 3%;
 }
 
 .input-field label {
-     color: black;
+  color: black;
 }
 
 #needAcc {
   color: black;
   background-color: #6381D1;
+}
+
+#loginButton {
+  background-color: #5F4B66;
+  color: #A7ADC6;
+}
+
+.divider {
+  background-color: black;
+}
+
+.input-field input[type=text]:focus + label {
+  color: #black;
+}
+
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid black;
+  box-shadow: 0 1px 0 0 black;
+}
+
+.input-field input[type=text].valid {
+  border-bottom: 1px solid black;
+  box-shadow: 0 1px 0 0 black;
+ }
+
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid black;
+  box-shadow: 0 1px 0 0 black;
+}
+
+.input-field .prefix.active {
+  color: black;
+}
+
+.icon_prefix.active {
+  color: black;
+}
+
+#passwordLogin {
+  border-color: black;
+}
+
+#usernameLogin {
+  border-color: black;
+}
+
+.material-icons prefix active {
+  color: black;
+}
+
+#signUp {
+  background-color: #A7ADC6;
+  border-radius: 0%;
+  border: 0.5px solid;
+  border-color: #5F4B66;
+  padding-left: 5% !important;
+}
+
+#modal1 {
+  height:285px;
+  box-shadow: 2px 2px 2px;
+  border: 8px solid;
+  border-color: #5F4B66;
+  background-color: #A7ADC6;
+  border-radius: 3%;
+}
+
+#rowSignUp {
+  margin-top: 0.5%;
+}
+
+#signUpButton {
+  background-color: #5F4B66;
+  color: #A7ADC6;
 }
 
 header {
