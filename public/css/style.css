@@ -274,6 +274,10 @@ p {
   color: #A7ADC6;
 }
 
+.favIframe {
+  width: 90%;
+}
+
 header {
   background: url('http://az616578.vo.msecnd.net/files/2015/12/20/6358623850982099701625905936_concert%20crowd.jpg');
   background-size: cover;

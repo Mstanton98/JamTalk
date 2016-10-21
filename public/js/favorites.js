@@ -6,17 +6,17 @@
   $.getJSON('/favorites')
   .done((favorites) => {
     const $box = $('#favoritesBox');
-    console.log(favorites);
 
     for (const fav of favorites) {
       const $div = $('<div>').attr({ class:'favDiv col l6 m6 s12' });
       const $track = fav.embedLink;
       const $delFav = $('<a class="deleteButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">delete_forever</i></a>');
 
-      console.log($track);
       $div.append($track);
       $div.append($delFav);
       $box.append($div);
+      $($track).addClass('favIframe');
+      $($track)
 
       $delFav.click((event) => {
 
