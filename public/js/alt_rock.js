@@ -11,12 +11,12 @@ $(() => {
   $sidebarUsername.html(`Hello ${localStorage.getItem('username')}!`);
 
   $('#chatForm').submit(() => {
-    socket.emit('chat message', $('#chatPH').val());
+    socket.emit('chat message', localStorage.getItem('username') + ':  '  + $('#chatPH').val());
     $('#chatPH').val('');
     return false;
   });
   socket.on('chat message', (msg) => {
-    $('#msgBox').append($('<li>').text(`${localStorage.getItem('username')}:` + '  ' + msg));
+    $('#msgBox').append($('<li>').text(msg));
     let scroll = $('#msgBox');
     let height = scroll[0].scrollHeight;
     scroll.scrollTop(height);
