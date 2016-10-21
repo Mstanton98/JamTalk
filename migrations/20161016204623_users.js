@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 exports.up = function(knex) {
   return knex.schema.createTable('users', (table) => {
@@ -11,5 +11,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.droptable('users')
+  return knex.schema.droptable('users');
 };
