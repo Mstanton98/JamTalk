@@ -1,32 +1,47 @@
 (function() {
   'use strict';
 
+  $(".button-collapse").sideNav();
+
   $.getJSON('/favorites')
-    .done((favorites) => {
-      const $favs = $('#favorites');
+  .done((favorites) => {
+    const $box = $('#favoritesBox');
+    console.log(favorites);
 
-      for (const fav of favorites) {
-        const $anchor = $('<a>')
-          .attr({
-            href: `/track.html?id=${fav.trackId}`,
-            'data-delay': '50',
-            'data-tooltip': fav.title
-          })
-          .tooltip();
+    for (const fav of favorites) {
+      const $div = $('<div>').attr({ class:'favDiv col l6 m6 s12' });
+      const $track = fav.embedLink;
+      const $delFav = $('<a class="deleteButton btn-floating btn-large waves-effect waves-light"><i class="material-icons">delete_forever</i></a>');
 
-        const $card = $('<div>').addClass('card');
-        const $cardImage = $('<div>').addClass('card-image');
-        const $col = $('<div>').addClass('col s6 m4 l3');
-        const $img = $('<img>').attr({ src: fav.coverUrl, alt: fav.title });
+      console.log($track);
+      $div.append($track);
+      $div.append($delFav);
+      $box.append($div);
 
-        $cardImage.append($img);
-        $anchor.append($cardImage);
-        $card.append($anchor);
-        $col.append($card);
-        $favs.append($col);
+      $delFav.click((event) => {
+
+        const options = {
+          contentType: 'application/json',
+          data: JSON.stringify({ trackId: fav.trackId }),
+          dataType: 'json',
+          type: 'DELETE',
+          url: '/favorites'
+        };
+
+        $.ajax(options)
+        .done(() => {
+          $(event.target).closest('.favDiv').remove();
+
+          Materialize.toast('Removed track from your favorites', 5000);
+        })
+        .fail(() => {
+          Materialize.toast(
+            'Unable to remove this track from your favorites', 5000);
+          });
+        });
       }
     })
     .fail(() => {
-      //window.location.href = '/index.html';
+      window.location.href = '/index.html';
     });
-})();
+  })();

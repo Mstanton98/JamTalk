@@ -22,14 +22,14 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/favorites', (req, res, next) => {
+router.get('/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
-
+  console.log(req.token);
 
   knex('favorites')
     .innerJoin('tracks', 'tracks.id', 'favorites.track_id')
     .where('favorites.user_id', userId)
-    .orderBy('tracks.title', 'ASC')
+    .orderBy('tracks.id', 'ASC')
     .then((rows) => {
       const favorites = camelizeKeys(rows);
 

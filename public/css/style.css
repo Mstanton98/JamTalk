@@ -49,6 +49,10 @@ p {
   font-size: 48px;
 }
 
+#favoritesHeader {
+  font-size: 72px;
+}
+
 #favButton {
   float: right;
   background-color: #5F4B66;
@@ -254,6 +258,20 @@ p {
 
 #signUpCont {
   margin-bottom: 0%;
+}
+
+.favDiv {
+  box-shadow: 2px 2px 2px;
+  border: 8px solid;
+  border-color: #5F4B66;
+  background-color: #A7ADC6;
+  border-radius: 3%;
+}
+
+.deleteButton {
+  text-align: center;
+  background-color: #5F4B66;
+  color: #A7ADC6;
 }
 
 header {

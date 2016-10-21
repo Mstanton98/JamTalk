@@ -9,7 +9,7 @@ $(function() {
 
   let trackObj;
 
-  $sidebarUsername.html(`Hello ${localStorage.getItem('username')}!`);
+  $sidebarUsername.text(`Hello ${localStorage.getItem('username')}!`);
 
     $('#chatForm').submit(function(){
       socket.emit('chat message', $('#chatPH').val());
@@ -18,7 +18,6 @@ $(function() {
     });
     socket.on('chat message', function(msg){
       $('#msgBox').append($('<li>').text(`${localStorage.getItem('username')}:` + '  ' + msg));
-      console.log(msg);
     });
 
   $.getJSON('/metal')
