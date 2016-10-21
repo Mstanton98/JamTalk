@@ -14,7 +14,6 @@ const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const path = require('path');
 
-
 app.disable('x-powered-by');
 
 app.use(morgan('dev'));
@@ -48,43 +47,41 @@ const edmChat = io.of('/edm');
 const rapChat = io.of('/rap');
 const bluesChat = io.of('/blues');
 
-metalChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
+metalChat.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
     metalChat.emit('chat message', msg);
   });
 });
 
-folkChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
+folkChat.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
     folkChat.emit('chat message', msg);
   });
 });
 
-rockChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
+rockChat.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
     rockChat.emit('chat message', msg);
   });
 });
 
-edmChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
+edmChat.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
     edmChat.emit('chat message', msg);
   });
 });
 
-rapChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
+rapChat.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
     rapChat.emit('chat message', msg);
   });
 });
 
-bluesChat.on('connection', function(socket){
-  socket.on('chat message', function(msg){
+bluesChat.on('connection', (socket) => {
+  socket.on('chat message', (msg) => {
     bluesChat.emit('chat message', msg);
   });
 });
-
-
 
 app.use(altRock);
 app.use(blues);
@@ -96,11 +93,9 @@ app.use(rap);
 app.use(token);
 app.use(users);
 
-
-
 app.use((_req, res) => {
   res.sendStatus(404);
-})
+});
 
 app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {
@@ -116,12 +111,12 @@ app.use((err, _req, res, _next) => {
     return res
       .status(err.status)
       .set('Content-Type', 'text/plain')
-      .send(err.statusText)
+      .send(err.statusText);
   }
 
   console.error(err.stack);
   res.sendStatus(500);
-})
+});
 
 server.listen(port, () => {
   console.log('Listening on port', port);
