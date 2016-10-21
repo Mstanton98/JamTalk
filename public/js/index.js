@@ -36,7 +36,7 @@ $(document).ready(function(){
     $.ajax(options)
       .done(() => {
         localStorage.setItem('username', username)
-        window.location.href = '/metal.html';
+        window.location.href = '/favorites.html';
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
@@ -76,7 +76,7 @@ $(document).ready(function(){
 
   $.ajax(optionsSignUp)
     .done(() => {
-      window.location.href = '/metal.html';
+      window.location.href = '/favorites.html';
     })
     .fail(($xhr) => {
       Materialize.toast($xhr.responseText, 3000);

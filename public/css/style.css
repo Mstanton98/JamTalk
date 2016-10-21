@@ -100,7 +100,7 @@ p {
   padding-bottom: 35%;
 }
 
-#chatBox {
+#Box {
   margin-top: 2.5%;
   margin-bottom: none;
   padding-left: none;
@@ -260,6 +260,10 @@ p {
   margin-bottom: 0%;
 }
 
+li {
+  list-style-type: none;
+}
+
 .favDiv {
   box-shadow: 2px 2px 2px;
   border: 8px solid;
@@ -275,7 +279,13 @@ p {
 }
 
 .favIframe {
-  width: 90%;
+  width: 100%;
+  height: 200px;
+  margin-top: 2%;
+}
+
+#username {
+  font-size: 24px;
 }
 
 header {
