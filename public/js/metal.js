@@ -6,7 +6,6 @@ $(function() {
   const $song = $('#songDiv');
   const $sidebarUsername = $('#username');
   const $logout = $('#signOut');
-
   let trackObj;
 
   $sidebarUsername.text(`Hello ${localStorage.getItem('username')}!`);
@@ -18,12 +17,14 @@ $(function() {
     });
     socket.on('chat message', function(msg){
       $('#msgBox').append($('<li>').text(`${localStorage.getItem('username')}:` + '  ' + msg));
+      let scroll = $('#msgBox');
+      let height = scroll[0].scrollHeight;
+      scroll.scrollTop(height);
     });
 
   $.getJSON('/metal')
     .done((track) => {
       trackObj = track;
-
       $song.html(track.embedLink);
     })
     .fail(() => {
