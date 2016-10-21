@@ -6,7 +6,7 @@
 body {
   background-color: #A7ADC6;
   display: flex;
-  min-height: 100vh;
+  min-height: 50vh;
   flex-direction: column;
 }
 
@@ -19,7 +19,7 @@ p {
 }
 
 #appName {
-  margin-top: 1%;
+  margin-top: 1.5%;
   /*margin-left: 33%;*/
   padding: 0%;
   color: black;
@@ -29,7 +29,7 @@ p {
 #appNameLogin {
   color: black;
   font-family: 'Lobster', cursive;
-  font-size: 36px;
+  font-size:48px;
 }
 
 #login {
@@ -51,6 +51,7 @@ p {
 
 #favoritesHeader {
   font-size: 72px;
+  font-family: 'Lobster', cursive;
 }
 
 #favButton {
@@ -89,6 +90,7 @@ p {
 
 #navContainer {
   margin: 0%;
+  margin-right: 0%;
 }
 
 #navLogin {
@@ -142,6 +144,7 @@ p {
 
 #sendButton {
   background-color: #2C1320;
+  position:sticky;
   padding-top: 2%;
   padding-bottom: 5%;
 }
@@ -250,6 +253,7 @@ p {
   background-color: #5F4B66;
   color: #A7ADC6;
   margin-bottom: 2px;
+  position: relative;
 }
 
 #navRow {
@@ -288,10 +292,14 @@ li {
   font-size: 24px;
 }
 
+#favIcon {
+  margin-left: auto;
+}
+
 header {
   background: url('http://az616578.vo.msecnd.net/files/2015/12/20/6358623850982099701625905936_concert%20crowd.jpg');
   background-size: cover;
   flex-direction:column;
-  height: 750px;
+  height: 900px;
   justify-content: center;
 }
