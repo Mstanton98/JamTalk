@@ -1,4 +1,4 @@
-'user strict';
+'use strict';
 
 const Joi =require('joi');
 

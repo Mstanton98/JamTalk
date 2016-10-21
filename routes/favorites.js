@@ -24,7 +24,6 @@ const authorize = function(req, res, next) {
 
 router.get('/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
-  console.log(req.token);
 
   knex('favorites')
     .innerJoin('tracks', 'tracks.id', 'favorites.track_id')
@@ -42,7 +41,7 @@ router.get('/favorites', authorize, (req, res, next) => {
 
 router.post('/favorites', authorize, ev(validations.post), (req, res, next) => {
   const { userId } = req.token;
-  const trackId  = req.body.trackId;
+  const trackId = req.body.trackId;
   const embedLink = req.body.embedLink;
 
   const insertFavorite = { trackId, userId, embedLink };
@@ -56,31 +55,29 @@ router.post('/favorites', authorize, ev(validations.post), (req, res, next) => {
     }
 
     return knex('favorites')
-      .insert(decamelizeKeys(insertFavorite), '*')
+      .insert(decamelizeKeys(insertFavorite), '*');
   })
   .then((rows) => {
-    const favorite = camelizeKeys(rows[0])
+    const favorite = camelizeKeys(rows[0]);
 
     res.send(favorite);
   })
   .catch((err) => {
     next(err);
   });
-
 });
 
 router.delete('/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
-  let favorite ={};
+  const favorite = {};
 
-  const trackId  = req.body.trackId;
+  const trackId = req.body.trackId;
 
   knex('favorites')
     .where('track_id', trackId)
     .andWhere('user_id', userId)
     .first()
     .then((row) => {
-
       if (!row) {
         throw boom.create(404, 'Favorite not found');
       }
@@ -91,17 +88,14 @@ router.delete('/favorites', authorize, (req, res, next) => {
       return knex('favorites')
         .del()
         .where('track_id', trackId)
-        .andWhere('user_id', userId)
-
+        .andWhere('user_id', userId);
     })
     .then(() => {
-
       res.send(camelizeKeys(favorite));
     })
     .catch((err) => {
       next(err);
     });
-    });
-
+});
 
 module.exports = router;

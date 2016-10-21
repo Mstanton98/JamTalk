@@ -14,7 +14,5 @@ module.exports.post = {
       .required()
       .trim()
       .min(8)
-
-
   }
 };

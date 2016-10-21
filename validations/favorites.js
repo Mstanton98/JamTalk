@@ -8,7 +8,6 @@ module.exports.post = {
       .integer()
       .required()
       .label('Track Id')
-      .min(0),
-
+      .min(0)
   }
 };

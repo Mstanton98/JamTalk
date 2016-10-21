@@ -14,13 +14,14 @@ const router = express.Router();
 
 router.post('/users', ev(validations.post), (req, res, next) => {
   const { username, email, password } = req.body;
+
   knex('users')
     .where('email', email)
     .then((row) => {
       if (row.length) {
         return next(boom.create(400, 'Invalid username or password.'));
       }
-    })
+    });
 
   bcrypt.hash(password, 12)
     .then((hashedPassword) => {

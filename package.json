@@ -5,8 +5,9 @@
   "main": "server.js",
   "scripts": {
     "knex": "knex",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "heroku-postbuild": "knex migrate:latest",
+    "start": "nodemon server.js",
+    "nf": "nf start"
   },
   "author": "Derek Wierson <derek.wierson@gmail.com>",
   "license": "ISC",
@@ -30,6 +31,10 @@
   "devDependencies": {
     "dotenv": "^2.0.0",
     "eslint": "^3.1.1",
-    "eslint-config-ryansobol": "^7.7.0"
+    "eslint-config-ryansobol": "^7.7.0",
+    "foreman": "^2.0.0"
+  },
+  "engines": {
+    "node": "6.6.0"
   }
 }
