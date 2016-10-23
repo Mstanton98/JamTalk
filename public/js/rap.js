@@ -1,7 +1,6 @@
-'use strict'
+'use strict';
 
-$(function() {
-
+$(() => {
   const socket = io('/rap');
   const $song = $('#songDiv');
   const $sidebarUsername = $('#username');
@@ -10,18 +9,19 @@ $(function() {
 
   $sidebarUsername.html(`Hello ${localStorage.getItem('username')}!`);
 
-    $('#chatForm').submit(function(){
-      socket.emit('chat message', localStorage.getItem('username') + ':  '  + $('#chatPH').val());
-      $('#chatPH').val('');
-      return false;
-    });
-    socket.on('chat message', function(msg){
-      $('#msgBox').append($('<li>').text(msg));
-      let scroll = $('#msgBox');
-      let height = scroll[0].scrollHeight;
-      scroll.scrollTop(height);
-      console.log(msg);
-    });
+  $('#chatForm').submit(() => {
+    socket.emit('chat message', localStorage.getItem('username') + ':  '  + $('#chatPH').val());
+    $('#chatPH').val('');
+    
+    return false;
+  });
+  socket.on('chat message', (msg) => {
+    $('#msgBox').append($('<li>').text(msg));
+    let scroll = $('#msgBox');
+    let height = scroll[0].scrollHeight;
+    scroll.scrollTop(height);
+    console.log(msg);
+  });
 
   $.getJSON('/rap')
     .done((track) => {
