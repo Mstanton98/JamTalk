@@ -20,7 +20,14 @@ p {
 
 #appName {
   margin-top: 1.5%;
-  /*margin-left: 33%;*/
+  padding: 0%;
+  color: black;
+  font-family: 'Lobster', cursive;
+}
+
+#appNameFavs {
+  margin-top: 1.5%;
+  margin-left: 33%;
   padding: 0%;
   color: black;
   font-family: 'Lobster', cursive;
@@ -102,14 +109,6 @@ p {
   padding-bottom: 35%;
 }
 
-#Box {
-  margin-top: 2.5%;
-  margin-bottom: none;
-  padding-left: none;
-  padding-right: none;
-  position: relative;
-}
-
 #chatView {
   background-color: #BAABBD;
   box-shadow: 4px 4px 4px;
@@ -144,7 +143,6 @@ p {
 
 #sendButton {
   background-color: #2C1320;
-  position:sticky;
   padding-top: 2%;
   padding-bottom: 5%;
 }
@@ -190,7 +188,7 @@ p {
 }
 
 .input-field input[type=text]:focus + label {
-  color: #black;
+  color: black;
 }
 
 .input-field input[type=text]:focus {
@@ -233,7 +231,7 @@ p {
   border-radius: 0%;
   border: 0.5px solid;
   border-color: #5F4B66;
-  padding-left: 5% !important;
+  padding-left: 5%;
 }
 
 #modal1 {

@@ -1,75 +1,72 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link type="text/css" rel="stylesheet" href="css/style.css">
-  <title>Your favorite tracks</title>
-</head>
-<body>
-  <div id="nav">
-  <div class="container" id="navContainer">
-    <div class="row" id="navRow">
-      <ul id="slide-out" class="side-nav">
-        <li>
-          <div id="navHead" class="userView">
-            <img class="background" height="250" width="300" src="http://az616578.vo.msecnd.net/files/2015/12/20/6358623850982099701625905936_concert%20crowd.jpg">
-            <span class="white-text name" id="username">Username here</span>
-          </div>
-        </li>
-        <li><a href="favorites.html"><i class="material-icons">favorite</i>Favorites</a></li>
-        <li>
-          <div class="divider"></div>
-        </li>
-        <li><a class="subheader">Today's tracks</a></li>
-        <li><a class="waves-effect" href="metal.html">Metal</a></li>
-        <li><a class="waves-effect" href="folk.html">Folk</a></li>
-        <li><a class="waves-effect" href="blues.html">Jazz n' blues</a></li>
-        <li><a class="waves-effect" href="edm.html">EDM</a></li>
-        <li><a class="waves-effect" href="rap.html">Hip Hop/Rap</a></li>
-        <li><a class="waves-effect" href="alt_rock.html">Alternative Rock</a></li>
-        <li>
-          <div class="divider"></div>
-        </li>
-        <li><a href="#!" id="signOut">Sign out</a></li>
-      </ul>
-      <a href="#" data-activates="slide-out" class="button-collapse col l1 m1 s1"><i id="hamburger" class="large material-icons">queue_music</i></a>
-      <h1 class="center-align" id="appName">JamTalk</h1>
-    </div>
-  </div>
-</div>
- <h1 class="center-align black-text" id="favoritesHeader">
-   Favorites
- </h1>
-  <div class="container" id="favoritesContainer">
-    <div id="favoritesBox" class="row">
-    </div>
-  </div>
-  <footer class="page-footer" id="favFoot">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h4 class="white-text" id="footName">JamTalk</h4>
-          <p class="grey-text text-lighten-4">Chat about daily trending music, argue about daily trending music, you can even listen to daily trending music. JamTalk, its science.</p>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    <title>Your favorite tracks</title>
+  </head>
+  <body>
+    <div id="nav">
+      <div class="container" id="navContainer">
+        <div class="row" id="navRow">
+          <ul id="slide-out" class="side-nav">
+            <li>
+              <div id="navHead" class="userView">
+                <img class="background" height="250" width="300" src="http://az616578.vo.msecnd.net/files/2015/12/20/6358623850982099701625905936_concert%20crowd.jpg" alt="http://hdimagesnew.com/wp-content/uploads/2016/09/image-not-found.png">
+                <span class="white-text name" id="username">Username here</span>
+              </div>
+            </li>
+            <li><a href="favorites.html"><i class="material-icons">favorite</i>Favorites</a></li>
+            <li>
+              <div class="divider"></div>
+            </li>
+            <li><a class="subheader">Today's tracks</a></li>
+            <li><a class="waves-effect" href="metal.html">Metal</a></li>
+            <li><a class="waves-effect" href="folk.html">Folk</a></li>
+            <li><a class="waves-effect" href="blues.html">Jazz n' blues</a></li>
+            <li><a class="waves-effect" href="edm.html">EDM</a></li>
+            <li><a class="waves-effect" href="rap.html">Hip Hop/Rap</a></li>
+            <li><a class="waves-effect" href="alt_rock.html">Alternative Rock</a></li>
+            <li>
+              <div class="divider"></div>
+            </li>
+            <li><a href="#!" id="signOut">Sign out</a></li>
+          </ul>
+          <a href="#" data-activates="slide-out" class="button-collapse col l1 m1 s1"><i id="hamburger" class="large material-icons">queue_music</i></a>
+          <h1 class="center-align" id="appNameFavs">JamTalk</h1>
         </div>
       </div>
     </div>
-    <div class="footer-copyright">
-      <div class="container">
-        © 2016 Derek Wierson, Michael Stanton
+    <h1 class="center-align black-text" id="favoritesHeader">
+      Favorites
+    </h1>
+    <div class="container" id="favoritesContainer">
+      <div id="favoritesBox" class="row">
       </div>
     </div>
-  </footer>
-
-  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  <script src="js/favorites.js" type="text/javascript"></script>
-</body>
-
+    <footer class="page-footer" id="favFoot">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h4 class="white-text" id="footName">JamTalk</h4>
+            <p class="grey-text text-lighten-4">Chat about daily trending music, argue about daily trending music, you can even listen to daily trending music. JamTalk, its science.</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2016 Derek Wierson, Michael Stanton
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="js/favorites.js" type="text/javascript"></script>
+  </body>
 </html>
