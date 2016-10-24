@@ -1,7 +1,8 @@
 'use strict';
 
-(function() {
+/* eslint-disable no-undef, max-len, no-loop-func */
 
+(function() {
   $('.button-collapse').sideNav();
 
   const $sidebarUsername = $('#username');

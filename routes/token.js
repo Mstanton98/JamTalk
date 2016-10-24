@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable new-cap, object-shorthand*/
+
 const boom = require('boom');
 const bcrypt = require('bcrypt-as-promised');
 const jwt = require('jsonwebtoken');

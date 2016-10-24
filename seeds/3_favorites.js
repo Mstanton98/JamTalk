@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable camelcase*/
+git 
 exports.seed = function(knex) {
   return knex('favorites').del()
     .then(() => {

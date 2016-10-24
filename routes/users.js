@@ -1,6 +1,6 @@
 'use strict';
 
-// eslint-disable-next-line new-cap
+/* eslint-disable new-cap*/
 
 const bcrypt = require('bcrypt-as-promised');
 const boom = require('boom');

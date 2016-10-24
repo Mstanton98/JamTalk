@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable new-cap*/
+
 const boom = require('boom');
 const express = require('express');
 const knex = require('../knex');

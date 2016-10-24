@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable no-undef, max-len, camelcase */
+
 $(document).ready(() => {
   $('.modal-trigger').leanModal({
     dismissible: true,

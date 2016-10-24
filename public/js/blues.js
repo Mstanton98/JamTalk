@@ -1,5 +1,7 @@
 'use strict';
 
+/* eslint-disable no-undef, max-len */
+
 $(() => {
   const socket = io('/folk');
   const $song = $('#songDiv');
