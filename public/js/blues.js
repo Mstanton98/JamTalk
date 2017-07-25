@@ -3,7 +3,7 @@
 /* eslint-disable no-undef, max-len */
 
 $(() => {
-  const socket = io('/folk');
+  const socket = io('/blues');
   const $song = $('#songDiv');
   const $sidebarUsername = $('#username');
   const $logout = $('#signOut');
@@ -25,7 +25,7 @@ $(() => {
     scroll.scrollTop(height);
   });
 
-  $.getJSON('/folk')
+  $.getJSON('/blues')
     .done((track) => {
       trackObj = track;
       $song.html(track.embedLink);
